@@ -58,11 +58,12 @@ telebot_error_e telebot_parser_get_updates(struct json_object *obj,
     int ret;
     struct json_object *array = obj;
     int array_len = json_object_array_length(array);
+    /* allow arrays of length 0 to be valid return values. This is not an error
     if (!array_len)
-        return TELEBOT_ERROR_OPERATION_FAILED;
+        return TELEBOT_ERROR_OPERATION_FAILED;*/
 
     telebot_update_t *result = calloc(array_len, sizeof(telebot_update_t));
-    if (result == NULL)
+    if ( (result == NULL) && (array_len != 0) )
         return TELEBOT_ERROR_OUT_OF_MEMORY;
 
     *count = array_len;

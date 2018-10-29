@@ -19,6 +19,8 @@
 #ifndef __TELEBOT_H__
 #define __TELEBOT_H__
 
+#include <stdbool.h>
+
 #include "telebot-common.h"
 #include "telebot-types.h"
 #include "telebot-methods.h"
